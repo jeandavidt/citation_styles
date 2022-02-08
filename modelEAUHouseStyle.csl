@@ -379,6 +379,11 @@
       <else-if type="book report thesis" match="any">
         <text variable="number-of-pages" prefix=" pp. "/>
       </else-if>
+      <else-if type="paper-conference" match="any">
+        <text variable="container-title" prefix=" In: "/>
+        <text variable="event-place" prefix=" "/>
+
+      </else-if>
     </choose>
   </macro>
   <macro name="point-locators">
