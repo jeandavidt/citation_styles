@@ -168,7 +168,7 @@
 	      <else>
           <choose>
 	          <if variable="URL" match="any">
-	            <text variable="URL" prefix="Available at "/>
+	            <text variable="URL" prefix="URL: "/>
               <group prefix=" [" suffix="]">
                 <text term="accessed" text-case="lowercase" suffix=" "/>
                 <date variable="accessed">
