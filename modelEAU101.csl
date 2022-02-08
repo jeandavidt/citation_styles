@@ -429,7 +429,7 @@
       </if>
       <else-if type="legal_case" match="none">
         <group delimiter=" ">
-          <text value="In: />
+          <text value="In: "/>
           <text variable="container-title" text-case="title" font-style="italic" suffix=""/>
           <choose>
             <if type="post-weblog">
