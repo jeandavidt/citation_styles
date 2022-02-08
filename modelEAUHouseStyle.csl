@@ -162,44 +162,35 @@
   <macro name="access">
     <group delimiter=". ">
       <choose>
-        <if type="graphic report" match="any">
-          <text macro="archive"/>
+        <if variable="DOI" match="any">
+          <text variable="DOI" prefix="DOI: "/>
         </if>
-        <else-if type="article-journal bill book chapter legal_case legislation motion_picture paper-conference" match="none">
-          <text macro="archive"/>
-        </else-if>
-      </choose>
-      <choose>
-        <if type="webpage post-weblog" match="any">
-          <date variable="issued" form="text"/>
-        </if>
-      </choose>
+	      <else>
+          <choose>
+	          <if variable="URL" match="any">
+	            <text variable="URL" prefix="Available at "/>
+              <group prefix=" [" suffix="]">
+                <text term="accessed" text-case="lowercase" suffix=" "/>
+                <date variable="accessed">
+                  <date-part name="month" suffix=" "/>
+                  <date-part name="day" suffix=", "/>
+                  <date-part name="year"/>
+                </date>
+              </group>
+	          </if>
+	        </choose>
+	      </else>
+	    </choose>
       <choose>
         <if variable="issued" match="none">
-          <group delimiter=" ">
-            <text term="accessed" text-case="capitalize-first"/>
-            <date variable="accessed" form="text"/>
+          <group prefix=" [" suffix="]">
+            <text term="accessed" text-case="lowercase" suffix=" "/>
+            <date variable="accessed">
+              <date-part name="month" suffix=" "/>
+              <date-part name="day" suffix=", "/>
+              <date-part name="year"/>
+            </date>
           </group>
-        </if>
-      </choose>
-      <choose>
-        <if type="legal_case" match="none">
-          <choose>
-            <if variable="DOI">
-              <choose>
-                <if match="none" variable="volume">
-                  <text variable="DOI"/>
-                </if>
-              </choose>
-            </if>
-            <else>
-              <choose>
-                <if match="none" variable="volume">
-                  <text variable="URL"/>
-                </if>
-              </choose>
-            </else>
-          </choose>
         </if>
       </choose>
     </group>
