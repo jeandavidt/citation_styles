@@ -286,11 +286,9 @@
                   <text variable="issue" prefix="(" suffix=")"/>
                 </if>
                 <else>
-                <!--
-                  <date variable="issued">
+                  <date variable="issued"  prefix="(" suffix=")">
                     <date-part name="month"/>
                   </date>
-                -->
                 </else>
               </choose>
             </group>
@@ -305,7 +303,7 @@
             </group>
           </else-if>
           <else>
-            <date variable="issued" prefix=", ">
+            <date variable="issued" prefix=", (" suffix=")">
               <date-part name="month"/>
             </date>
           </else>
